@@ -1,25 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {Link, Route, Switch} from 'react-router-dom';
+import Landing from './components/Landing';
+import Login from './components/Login';
+import Register from './components/Register';
+
+import Classes from './components/Classes';
+import Instructors from './components/Instructors';
+import Calendar from './components/Calendar';
+import Dashboard from './components/Dashboard';
+
+import Home from './components/Home';
+import Header from './components/Header';
+
 import './App.css';
 
 class App extends Component {
+  // componentDidMount() {
+  //   loadDummyData()
+  // }
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <Header />
         </header>
+        
+        <Switch>     
+          {/* <Route exact path='/' component={Header} /> */}
+          <Route exact path='/home' component={Home} />
+          <Route exact path='/landing' component={Landing} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/register' component={Register} />
+          
+          <Route exact path='/classes' component={Classes} />
+          <Route exact path='/instructors' component={Instructors} />
+          <Route exact path='/calendar' component={Calendar} />
+          <Route exact path='/dashboard' component={Dashboard} />
+        </Switch>
       </div>
     );
   }
