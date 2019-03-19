@@ -10,6 +10,35 @@
   background: grey;
   height: 10vh;
 }
-.ui.tabular.menu .item {
+/* .ui.tabular.menu .item {
   width: 33%;
+} */
+.tabs {
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+
+
+}
+.tab {
+  border: 0.5px dashed black;
+  width: 25%;
+
+}
+.tab-active {
+  border-top: 1px solid grey;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+  background: red;
+  /* width: 100% */
+}
+.instructors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.classes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }

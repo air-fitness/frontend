@@ -8,6 +8,7 @@ class Header extends Component {
   render() {
     return(
       <Fragment>
+        <Link to='/home'>Home</Link>
       <Button.Group size='mini' floated={'right'}>
         <Link to='/login' >
           <Button>Log In</Button>
