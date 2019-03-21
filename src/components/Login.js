@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
 import { Form, Input } from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
+import { connect } from "react-redux";
+import { callLogin } from '../actions/index';
+
+
 
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
-      userName: '',
+      username: '',
       email: '',
       password: '',
     }
@@ -22,12 +26,12 @@ class Login extends Component {
         <h5>Click <Link to='/register'>HERE</Link> to Sign Up!</h5>
           <Form>
           <Form.Field >
-            <label>Email:</label>
+            <label>username:</label>
             <Input 
-              placeholder='email' 
-              name='email' 
-              value={this.state.email} 
-              type='email'
+              placeholder='username' 
+              name='username' 
+              value={this.state.username} 
+              type='username'
               onChange={this.handleInput}
             />
           </Form.Field>
@@ -41,6 +45,7 @@ class Login extends Component {
                 onChange={this.handleInput}
               />
             </Form.Field>
+            <Form.Button onClick={this.handleSubmit}>Submit</Form.Button>
           </Form>
         </div>
       </div>
@@ -51,15 +56,24 @@ class Login extends Component {
     this.setState({[e.target.name]:e.target.value});
   };
   handleSubmit = (e) => {
+    let history = this.props.history;
     e.preventDefault();
     const userCreds = {
-      password: this.state.password1,
-      email: this.state.email,
+      password: this.state.password,
+      username: this.state.username,
     }
-    console.log(userCreds);
-    this.setState({email:'',password:''});
+    this.props.callLogin(e, userCreds, history)
+    this.setState({username:'',password:''});
   }
 
 
 }
-export default Login;
+const mapStateToProps = state => {
+  return state;
+}
+
+export default connect(
+  mapStateToProps, {
+    callLogin
+  }
+)(Login);

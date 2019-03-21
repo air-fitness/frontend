@@ -127,6 +127,12 @@ const dummyData = {
           length: '1',
           repeat: 'weekly'
         },
+        {
+          day: 'W',
+          time: '09:00AMPST',
+          length: '1',
+          repeat: 'weekly'
+        },
       ]
     },
     {

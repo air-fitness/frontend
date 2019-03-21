@@ -18,6 +18,8 @@ const logger = createLogger({
 
 const initialState = {
   userData: {},
+  allClasses: [],
+  instructors: [],
   registrationCalled: false,
   registrationSuccess: false,
   regError: false,
@@ -26,7 +28,8 @@ const initialState = {
   loginReturned: false,
   loginSuccess: false,
   loginError: false,
-  errors: {}
+  errors: {},
+  
 };
 
 export const store = createStore(
