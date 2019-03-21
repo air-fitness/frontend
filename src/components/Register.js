@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import { connect } from "react-redux";
 import { Form, Input } from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
+import { callReg } from '../actions/index';
 
 
 class Register extends Component {
@@ -107,17 +109,30 @@ class Register extends Component {
     }
   };
   handleSubmit = (e) => {
+    let history = this.props.history;
     e.preventDefault();
     const newUser = {
-      admin: this.state.admin,
+      instructor: this.state.admin,
       first_name: this.state.firstName,
       last_name: this.state.lastName,
-      user_name: this.state.userName,
+      username: this.state.userName,
       password: this.state.password1,
       email: this.state.email,
     }
-    console.log(newUser);
+    
+    console.log('newUser', newUser);
+    this.props.callReg(e, newUser, history);
     this.setState({admin:false,firstName:'',lastName:'',userName:'',email:'',password1:'',password2:''});
   }
 };
-export default Register;
+const mapStateToProps = state => {
+  return state;
+}
+
+export default connect(
+  mapStateToProps, {
+    callReg
+  }
+)(Register);
+
+

@@ -42,3 +42,18 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+/* admin */
+.create-class {
+  border: 1px solid black;
+  width: 50%;
+
+
+}
+.create-class-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.datePicker {
+  display: flex;
+}

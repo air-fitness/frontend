@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "moment": "^2.24.0",
     "react": "^16.8.4",
+    "react-datetime": "^2.16.3",
     "react-dom": "^16.8.4",
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",
@@ -17,7 +19,7 @@
     "semantic-ui-react": "^0.86.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=5000 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
