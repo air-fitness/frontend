@@ -48,14 +48,15 @@ class CreateClassType extends Component {
   render() {
     return(
       <div className="create-class-type">
+        <h3 className='h3'>Create a Class Series</h3>
         <form className='create-class-type-form'>
 
           <label>Class Series Name</label>
             <input name='classTitle' value={this.state.classTitle} onChange={this.handleInput} placeholder='...' />
-
+          <br/>
           <label>Duration</label>
             <input name='duration' value={this.state.duration} onChange={this.handleInput} placeholder='...' />
-
+          <br/>
           <label>Class Category</label>
             <select name='categoryId' onChange={this.handleSelect}>
               <option value="0">--select-</option>
@@ -68,11 +69,8 @@ class CreateClassType extends Component {
               })}
             </select>
 
-          <button onClick={this.handleSubmit}>Submit</button>
+          <button className='admin-button' onClick={this.handleSubmit}>Submit</button>
         </form>
-        <br/>
-        <br/>
-        <br/>
       </div>
       
     )

@@ -3,9 +3,11 @@ import Datetime from 'react-datetime';
 import { connect } from "react-redux";
 import { callScheduleClass } from '../actions/index';
 import CreateClassType from './CreateClassType';
+import   Tabs from './Tabs';
 
 
 import './css/react-datetime.css'
+import moment from 'moment';
 
 class Admin extends Component {
   constructor() {
@@ -24,12 +26,11 @@ class Admin extends Component {
   handleSelect = (e) => {
     e.preventDefault();
     this.setState({[e.target.name]:e.target.value});
-    console.log('here',this.state.scheduleClassId);
   }
-
   handleDateInput = (momentObj, name) => {
     // console.log(momentObj.utc().format());
-    this.setState({[name]: momentObj.utc().format()});
+    
+      this.setState({[name]: momentObj.utc().format()});
   };
   handleScheduleClass = (e) => {
     // console.log()
@@ -49,11 +50,14 @@ class Admin extends Component {
   render() {
     return(
       <div className="admin">
+      <Tabs />
       
         <CreateClassType/>
-
+        
         <div className='create-class'>
-          <h5>Schedule a class</h5>        
+          <div className='h3'>
+            <h3>Schedule a class</h3>
+          </div>
           <form className='create-class-form'>
             {/* <label>Title</label>
               <input name='createClassTitle' value={this.state.createClassTitle}placeholder='...' onChange={this.handleInput} /> */}
@@ -66,28 +70,36 @@ class Admin extends Component {
                   )
                 })}
               </select>
-
+              <br/>
               <label>Location</label>
             <input name='scheduleClassLocation' value={this.state.scheduleClassLocation}placeholder='...' onChange={this.handleInput} />
-            {/* <div className="datePicker"> */}
-              <label>Start Time</label>
-                <Datetime 
+            <br/>
+            <div className="datePicker">
+              
+              
+              <span>
+              <div>Start Time</div>
+                <Datetime
+                  
                   value={this.state.startTime}
                   onChange={(momentObj) => {this.handleDateInput(momentObj, 'startTime')}}
                 />
-              <label>End Time</label>
-                <Datetime 
+             
+             <div>End Time</div>
+                <Datetime
                   value={this.state.endTime}
                   onChange={(momentObj) => {this.handleDateInput(momentObj, 'endTime')}}
                 />
-            {/* </div> */}
-            <button onClick={this.handleScheduleClass}>Submit</button>
+                </span>
+            </div>
+            <button className='admin-button' onClick={this.handleScheduleClass}>Submit</button>
           </form>
         </div>
       </div>
     )
   }
 };
+
 const mapStateToProps = state => {
   return state;
 }

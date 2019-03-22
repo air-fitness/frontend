@@ -7,8 +7,11 @@
   
 }
 .App-header {
-  background: grey;
-  height: 10vh;
+  background: dodgerblue;;
+  min-height: 10vh;
+}
+.header-buttons {
+  padding: 1%;
 }
 /* .ui.tabular.menu .item {
   width: 33%;
@@ -21,15 +24,25 @@
 
 }
 .tab {
-  border: 0.5px dashed black;
   width: 25%;
+  color: teal;
+  font-size: 16px;
+  line-height: 2;
+  border-radius: 5px;
+  border: 0.5px solid teal;
+}
+.tab:hover {
+  color: white;
+  cursor:pointer;
+  background-color: dodgerblue;
 
 }
 .tab-active {
   border-top: 1px solid grey;
   border-left: 1px solid grey;
   border-right: 1px solid grey;
-  background: red;
+  background:teal;
+  color: white;
   /* width: 100% */
 }
 .instructors {
@@ -37,27 +50,76 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-.classes {
+/* .classes {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-}
+} */
 /* admin */
-.create-class {
-  border: 1px solid black;
+.admin {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* text-align: center; */
+}
+.admin {
+  font-weight: bold;
+}
+.h3 {
+  text-align: center;
+  /* margin-top: 5px; */
+}
+.admin-button {
   width: 50%;
+  margin: 15px auto;
+  background-color: teal;
+  color: white;
+  height: 25px;
+  
 
+}
+.admin-button:hover {
+  color: dodgerblue;
+  cursor:pointer;
+  background-color: white
 
+}
+.create-class {
+  border: 1px solid teal;
+  width: 50%;
+  margin: 0 auto;
 }
 .create-class-form {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 75%;
+  margin: 0 auto;
 }
-.datePicker {
-  display: flex;
+.create-class-type {
+  border: 1px solid teal;
+  width: 50%;
+  margin: 0 auto;
 }
 .create-class-type-form {
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
+  width: 75%;
+}
+.datePicker {
+  display: flex;
+  justify-content: center;
+}
+.create-class-type-form {
+  display: flex;
+  flex-direction: column;
+}
+.classes-title {
+  background: teal;
+  color: white;
+  height: 50px;
+}
+.semantic-table-header-row {
+  /* background-color: rgb(255, 30, 98); */
+  
 }
