@@ -14,7 +14,7 @@ export const callLogin = (e, creds, history) => {
     });
     promise
       .then(res => {
-        console.log('res', res.data);
+        console.log('login-res', res.data);
         let flag = false;
         if (res.data.instructor_id) {
           flag = true;
@@ -33,8 +33,7 @@ export const callLogin = (e, creds, history) => {
         localStorage.setItem('jwt', res.data.token);
         history.push('/');
       }).catch((err) => {
-        console.log('err', err);
-        alert('err');
+        console.log('login-err', err);
         dispatch({ 
           type: LOGIN_ERROR,
           payload: err

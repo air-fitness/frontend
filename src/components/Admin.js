@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Datetime from 'react-datetime';
 import { connect } from "react-redux";
 import { callNewClass } from '../actions/index';
+import CreateClassType from './CreateClassType';
 
 
 import './css/react-datetime.css'
@@ -27,14 +28,15 @@ class Admin extends Component {
   }
 
   handleDateInput = (momentObj, name) => {
+    console.log(momentObj.format().utc());
     // console.log(momentObj.toDate());
     this.setState({[name]: momentObj.toDate()});
   };
   handleNewClass = (e) => {
     e.preventDefault();
     const newClass = {
-      // start_time: this.state.startTime,
-      start_time: '2015-03-25T12:00:00Z',
+      start_time: this.state.startTime,
+      // start_time: '2015-03-25T12:00:00Z',
       // duration: this.state.endTime,
       duration: 1,
       location: this.state.createClassLocation,
@@ -48,12 +50,9 @@ class Admin extends Component {
   render() {
     return(
       <div className="admin">
-        {/* Payment History
-        Attendance // add student 
-          - Past Classes
-          - Upcoming Classes
-            - add student
-        Schedule   */}
+      
+        <CreateClassType/>
+
         <div className='create-class'>
           <h5>create new class</h5>        
           <form className='create-class-form'>

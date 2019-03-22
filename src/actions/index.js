@@ -3,3 +3,4 @@ export { callLogin } from './callLogin';
 export { callNewClass } from './callNewClass';
 export { getInstructors } from './getInstructors';
 export { getClasses } from './getClasses';
+export { callNewClassType } from './callNewClassType';
