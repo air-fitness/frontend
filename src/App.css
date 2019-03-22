@@ -57,3 +57,7 @@
 .datePicker {
   display: flex;
 }
+.create-class-type-form {
+  display: flex;
+  flex-direction: column;
+}

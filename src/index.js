@@ -20,6 +20,7 @@ const initialState = {
   userData: {},
   allClasses: [],
   instructors: [],
+  classTypes: [],
   registrationCalled: false,
   registrationSuccess: false,
   regError: false,

@@ -10,10 +10,10 @@ import {
   // CREATE_CLASS_ERROR,
   GET_INSTRUCTORS,
   GET_CLASSES,
+  NEW_CLASS_TYPE,
 
 
 } from '../actions/types';
-// import { CommentActions } from 'semantic-ui-react';
 
 
 const rootReducer = (state = null, action) => {
@@ -69,6 +69,11 @@ const rootReducer = (state = null, action) => {
       return {
         ...state,
         allClasses: action.payload
+      }
+    case NEW_CLASS_TYPE:
+      return {
+        ...state,
+        classTypes: action.payload
       }
 
     default:
