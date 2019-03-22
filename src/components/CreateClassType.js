@@ -9,28 +9,21 @@ class CreateClassType extends Component {
       classTitle: '',
       categoryId: '',
       duration: '',
-      categories: [
+      category: [
         {
-          categoryId: 1,
-          categoryName: 'Yoga'
+          id: 1,
+          catName: 'Yoga',
         },
         {
-          categoryId: 2,
-          categoryName: 'Weight Training'
+          id: 2,
+          catName: 'One-on-One',
         },
         {
-          categoryId: 3,
-          categoryName: 'Cardio'
-        },
-        {
-          categoryId: 4,
-          categoryName: 'One-on-One'
-        },
-        {
-          categoryId: 5,
-          categoryName: 'Other'
+          id: 3,
+          catName: 'Other',
         },
       ]
+      
     }
   }
   handleInput = (e) => {
@@ -66,9 +59,11 @@ class CreateClassType extends Component {
           <label>Class Category</label>
             <select name='categoryId' onChange={this.handleSelect}>
               <option value="0">--select-</option>
-              {this.state.categories.map((cat, index) =>{
+
+
+              {this.state.category.map((cat, index) =>{
                 return(
-                  <option key={index} value={cat.categoryId}>{cat.categoryName}</option>
+                  <option key={index} value={cat.id}>{cat.catName}</option>
                   )
               })}
             </select>

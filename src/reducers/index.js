@@ -73,7 +73,7 @@ const rootReducer = (state = null, action) => {
     case NEW_CLASS_TYPE:
       return {
         ...state,
-        classTypes: action.payload
+        allClasses: [...state.allClasses, action.payload]
       }
 
     default:

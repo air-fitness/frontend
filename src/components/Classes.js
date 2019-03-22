@@ -27,8 +27,10 @@ class Classes extends Component {
                 <Card.Content>
                   <Card.Header>{course.class_name}</Card.Header>
                   <Card.Description>
-                    <h5>category_id: {course.category_id}</h5>
-                    <h5>instructor_id: {course.instructor_id}</h5>
+                    <h5>Category: {`${course.category}`}</h5>
+                    <h5>Trainer: {`${course.first_name} ${course.last_name}`}</h5>
+                    <h5>Length: {course.duration} Minutes</h5>
+                    
                   </Card.Description>
                 </Card.Content>
               </Card>
