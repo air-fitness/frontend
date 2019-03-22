@@ -3,13 +3,13 @@ import Tabs from './Tabs';
 // import dummyData from '../dummyData';
 import { Card } from 'semantic-ui-react'
 import {connect} from 'react-redux'
-import {getClasses} from '../actions/index'
+import {getClassesTypes} from '../actions/index'
 
 
 
 class Classes extends Component {
   componentDidMount() {
-    this.props.getClasses();
+    this.props.getClassesTypes();
   }
 
   render() {
@@ -19,7 +19,7 @@ class Classes extends Component {
       <h1>Classes</h1>
       <div className="tab-content">
       <div className='classes'>
-        {this.props.allClasses.map((course, index) => {
+        {this.props.classTypes.map((course, index) => {
           return(
             <div className="class" key={index}>
               <Card >
@@ -48,6 +48,6 @@ const mapStateToProps = state => {
 }
 export default connect(
   mapStateToProps, {
-    getClasses
+    getClassesTypes
   }
 )(Classes);

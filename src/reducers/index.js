@@ -5,11 +5,9 @@ import {
   LOGIN_CALLED,
   LOGIN_RETURNED,
   LOGIN_ERROR,
-  // CREATE_CLASS_CALLED,
-  CREATE_CLASS_RETURNED,
-  // CREATE_CLASS_ERROR,
+  SCHEDULE_CLASS_RETURNED,
   GET_INSTRUCTORS,
-  GET_CLASSES,
+  GET_CLASSES_TYPES,
   NEW_CLASS_TYPE,
 
 
@@ -54,10 +52,10 @@ const rootReducer = (state = null, action) => {
         regError: true
       }
 
-    case CREATE_CLASS_RETURNED:
+    case SCHEDULE_CLASS_RETURNED:
       return {
         ...state,
-        classes: [...state.classes, action.payload]
+        scheduledClasses: [...state.scheduledClasses, action.payload]
       }
       
     case GET_INSTRUCTORS:
@@ -65,15 +63,15 @@ const rootReducer = (state = null, action) => {
         ...state,
         instructors: action.payload
       }
-    case GET_CLASSES:
+    case GET_CLASSES_TYPES:
       return {
         ...state,
-        allClasses: action.payload
+        classTypes: action.payload
       }
     case NEW_CLASS_TYPE:
       return {
         ...state,
-        allClasses: [...state.allClasses, action.payload]
+        classTypes: [...state.classTypes, action.payload]
       }
 
     default:
