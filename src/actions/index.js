@@ -3,4 +3,8 @@ export { callLogin } from './callLogin';
 export { callNewClass } from './callNewClass';
 export { getInstructors } from './getInstructors';
 export { getClasses } from './getClasses';
+export { getCalendar } from './getCalendar';
 export { callNewClassType } from './callNewClassType';
+export { buyPass } from './buyPass';
+export { clearPass } from './clearPass';
+export { attendClass } from './attendClass';
