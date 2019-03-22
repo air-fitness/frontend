@@ -9,28 +9,21 @@ class CreateClassType extends Component {
       classTitle: '',
       categoryId: '',
       duration: '',
-      categories: [
+      category: [
         {
-          categoryId: 1,
-          categoryName: 'Yoga'
+          id: 1,
+          catName: 'Yoga',
         },
         {
-          categoryId: 2,
-          categoryName: 'Weight Training'
+          id: 2,
+          catName: 'One-on-One',
         },
         {
-          categoryId: 3,
-          categoryName: 'Cardio'
-        },
-        {
-          categoryId: 4,
-          categoryName: 'One-on-One'
-        },
-        {
-          categoryId: 5,
-          categoryName: 'Other'
+          id: 3,
+          catName: 'Other',
         },
       ]
+      
     }
   }
   handleInput = (e) => {
@@ -55,29 +48,29 @@ class CreateClassType extends Component {
   render() {
     return(
       <div className="create-class-type">
+        <h3 className='h3'>Create a Class Series</h3>
         <form className='create-class-type-form'>
 
           <label>Class Series Name</label>
             <input name='classTitle' value={this.state.classTitle} onChange={this.handleInput} placeholder='...' />
-
+          <br/>
           <label>Duration</label>
             <input name='duration' value={this.state.duration} onChange={this.handleInput} placeholder='...' />
-
+          <br/>
           <label>Class Category</label>
             <select name='categoryId' onChange={this.handleSelect}>
               <option value="0">--select-</option>
-              {this.state.categories.map((cat, index) =>{
+
+
+              {this.state.category.map((cat, index) =>{
                 return(
-                  <option key={index} value={cat.categoryId}>{cat.categoryName}</option>
+                  <option key={index} value={cat.id}>{cat.catName}</option>
                   )
               })}
             </select>
 
-          <button onClick={this.handleSubmit}>Submit</button>
+          <button className='admin-button' onClick={this.handleSubmit}>Submit</button>
         </form>
-        <br/>
-        <br/>
-        <br/>
       </div>
       
     )

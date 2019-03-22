@@ -18,7 +18,7 @@ const logger = createLogger({
 
 const initialState = {
   userData: {},
-  allClasses: [],
+  scheduledClasses: [],
   instructors: [],
   classTypes: [],
   registrationCalled: false,

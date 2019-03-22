@@ -5,9 +5,7 @@ import {
 	LOGIN_CALLED,
 	LOGIN_RETURNED,
 	LOGIN_ERROR,
-	// CREATE_CLASS_CALLED,
 	CREATE_CLASS_RETURNED,
-	// CREATE_CLASS_ERROR,
 	GET_INSTRUCTORS,
 	GET_CLASSES,
 	GET_CALENDAR,
@@ -17,7 +15,11 @@ import {
 	BUY_PASS,
 	BUY_PASS_SUCCESS,
 	CLEAR_PASS,
-	CLEAR_PASS_SUCCESS
+	CLEAR_PASS_SUCCESS,
+  SCHEDULE_CLASS_RETURNED,
+  GET_CLASSES_TYPES,
+
+
 } from '../actions/types';
 
 const rootReducer = (state = null, action) => {
@@ -64,11 +66,6 @@ const rootReducer = (state = null, action) => {
 				classes: [...state.classes, action.payload]
 			};
 
-		case GET_INSTRUCTORS:
-			return {
-				...state,
-				instructors: action.payload
-			};
 		case GET_CLASSES:
 			return {
 				...state,
@@ -79,11 +76,16 @@ const rootReducer = (state = null, action) => {
 				...state,
 				calendar: action.payload
 			};
+		// case NEW_CLASS_TYPE:
+		// 	return {
+		// 		...state,
+		// 		classTypes: action.payload
+		// 	};
 		case NEW_CLASS_TYPE:
-			return {
-				...state,
-				classTypes: action.payload
-			};
+      return {
+        ...state,
+        classTypes: [...state.classTypes, action.payload]
+      }
 		case ATTEND_CLASS:
 			return {
 				...state,
@@ -114,6 +116,23 @@ const rootReducer = (state = null, action) => {
 				...state,
 				working: undefined
 			};
+    case SCHEDULE_CLASS_RETURNED:
+      return {
+        ...state,
+        scheduledClasses: [...state.scheduledClasses, action.payload]
+      }
+      
+    case GET_INSTRUCTORS:
+      return {
+        ...state,
+        instructors: action.payload
+      }
+    case GET_CLASSES_TYPES:
+      return {
+        ...state,
+        classTypes: action.payload
+      }
+    
 
 		default:
 			return state;

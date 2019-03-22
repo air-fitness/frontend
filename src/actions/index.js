@@ -1,9 +1,9 @@
 export { callReg } from './callReg';
 export { callLogin } from './callLogin';
-export { callNewClass } from './callNewClass';
+export { callScheduleClass } from './callScheduleClass';
 export { getInstructors } from './getInstructors';
-export { getClasses } from './getClasses';
 export { getCalendar } from './getCalendar';
+export { getClassesTypes } from './getClassesTypes';
 export { callNewClassType } from './callNewClassType';
 export { buyPass } from './buyPass';
 export { clearPass } from './clearPass';
