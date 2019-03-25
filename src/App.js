@@ -1,34 +1,35 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Classes from "./components/Classes";
 import Instructors from "./components/Instructors";
 import Calendar from "./components/Calendar";
 import Dashboard from "./components/Dashboard";
 import Admin from "./components/Admin";
-import Header from "./components/Header";
 import Login2 from "./components/Login/Login2";
-import Authentication from "./components/Login/Authentication";
-
+import Register2 from './components/Login/Register2'
+import { connect } from "react-redux";
+import Auth from './components/Login/Auth'
 import Home from "./components/Home";
-
 import "./App.css";
 
+/*eslint no-unused-vars: 0*/
+
+
 class App extends Component {
-  // componentDidMount() {
-  //   loadDummyData()
-  // }
   render() {
+    // console.log('app-props', this.props)
     return (
       <div className="App">
-        <header className="App-header">
-          <Header />
-        </header>
+        
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
+        <Route path='/' render={(props) => (
+          this.props.isLoggedIn ? 
+          (<Home history={this.props.history}/>) :
+          (<Auth history={this.props.history} location={this.props.location} match={this.props.match}/>)
+        )}/>
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/register" component={Register2} />
+          <Route exact path="/login" component={Login2} />
           <Route exact path="/classes" component={Classes} />
           <Route exact path="/instructors" component={Instructors} />
           <Route exact path="/calendar" component={Calendar} />
@@ -40,4 +41,16 @@ class App extends Component {
   }
 }
 
-export default Authentication(App)(Login2);
+// export default App;
+// const mapStateToProps = state => {
+//   return state;
+// }
+// export default connect(
+//   mapStateToProps
+// )(Authentication(App)(Login2));
+const mapStateToProps = state => {
+  return state;
+}
+export default connect(
+  mapStateToProps
+)(App);

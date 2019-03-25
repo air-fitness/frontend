@@ -3,11 +3,10 @@ import Datetime from 'react-datetime';
 import { connect } from "react-redux";
 import { callScheduleClass } from '../actions/index';
 import CreateClassType from './CreateClassType';
-import   Tabs from './Tabs';
 
 
 import './css/react-datetime.css'
-import moment from 'moment';
+// import moment from 'moment';
 
 class Admin extends Component {
   constructor() {
@@ -33,7 +32,6 @@ class Admin extends Component {
       this.setState({[name]: momentObj.utc().format()});
   };
   handleScheduleClass = (e) => {
-    // console.log()
     e.preventDefault();
     // console.log('here',this.state.scheduleClassId);
     const newScheduledClassId = this.state.scheduleClassId;
@@ -50,7 +48,6 @@ class Admin extends Component {
   render() {
     return(
       <div className="admin">
-      <Tabs />
       
         <CreateClassType/>
         

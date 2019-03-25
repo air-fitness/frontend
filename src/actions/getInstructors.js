@@ -1,7 +1,10 @@
 import axios from 'axios';
 import { GET_INSTRUCTORS } from './types';
 
-export const getInstructors = header => {
+
+
+export const getInstructors = () => {
+	const header = { Authorization: localStorage.getItem("jwt")};
 	return function(dispatch) {
 		axios
 			.get(

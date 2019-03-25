@@ -1,13 +1,11 @@
-import React, {Component, Fragment} from 'react';
-import Tabs from './Tabs';
+import React, {Component} from 'react';
 
 class Dashboard extends Component {
   render() {
     return(
-      <Fragment>
-      <Tabs/>
+      <div className='dashboard'>
       <h1>Dashboard</h1>
-      </Fragment>
+      </div>
     );
   }
 }

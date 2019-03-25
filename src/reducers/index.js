@@ -1,10 +1,10 @@
 import {
-	REG_CALLED,
-	REG_RETURNED,
-	REG_ERROR,
-	LOGIN_CALLED,
-	LOGIN_RETURNED,
-	LOGIN_ERROR,
+	PROTECTED_REG_CALLED,
+	PROTECTED_REG_RETURNED,
+	PROTECTED_REG_ERROR,
+	PROTECTED_LOGIN_CALLED,
+	PROTECTED_LOGIN_RETURNED,
+	PROTECTED_LOGIN_ERROR,
 	CREATE_CLASS_RETURNED,
 	GET_INSTRUCTORS,
 	GET_CLASSES,
@@ -17,43 +17,47 @@ import {
 	CLEAR_PASS,
 	CLEAR_PASS_SUCCESS,
   SCHEDULE_CLASS_RETURNED,
-  GET_CLASSES_TYPES,
-
-
+	GET_CLASSES_TYPES,
+	TOGGLE_LOADING,
 } from '../actions/types';
 
 const rootReducer = (state = null, action) => {
 	switch (action.type) {
-		case REG_CALLED:
+		case PROTECTED_REG_CALLED:
 			return {
 				...state,
 				registrationCalled: true
 			};
-		case REG_RETURNED:
+		case PROTECTED_REG_RETURNED:
 			return {
 				...state,
 				loginSuccess: true,
-				userData: action.payload
+				isLoggedIn: true,
+				token: action.payload.token,
+				userData: action.payload				
 			};
-		case REG_ERROR:
+		case PROTECTED_REG_ERROR:
 			return {
 				...state,
 				registrationSuccess: false,
-				regError: true
+				regError: true,
+				errors: action.payload
 			};
 
-		case LOGIN_CALLED:
+		case PROTECTED_LOGIN_CALLED:
 			return {
 				...state,
 				loginCalled: true
 			};
-		case LOGIN_RETURNED:
+		case PROTECTED_LOGIN_RETURNED:
 			return {
 				...state,
 				loginSuccess: true,
+				isLoggedIn: true,
+				token: action.payload.token,
 				userData: action.payload
 			};
-		case LOGIN_ERROR:
+		case PROTECTED_LOGIN_ERROR:
 			return {
 				...state,
 				loginSuccess: false,
@@ -74,13 +78,9 @@ const rootReducer = (state = null, action) => {
 		case GET_CALENDAR:
 			return {
 				...state,
-				calendar: action.payload
+				calendar: action.payload,
+				getCalendarSuccess: true
 			};
-		// case NEW_CLASS_TYPE:
-		// 	return {
-		// 		...state,
-		// 		classTypes: action.payload
-		// 	};
 		case NEW_CLASS_TYPE:
       return {
         ...state,
@@ -125,13 +125,20 @@ const rootReducer = (state = null, action) => {
     case GET_INSTRUCTORS:
       return {
         ...state,
-        instructors: action.payload
+				instructors: action.payload,
+				getInstructorsSuccess: true
       }
     case GET_CLASSES_TYPES:
       return {
         ...state,
-        classTypes: action.payload
-      }
+				classTypes: action.payload,
+				getClassTypesSuccess: true
+			}
+			case TOGGLE_LOADING:
+				return {
+					...state,
+					loading: action.payload
+				}
     
 
 		default:
