@@ -4,8 +4,8 @@ import styled from "styled-components";
 import background from "../../images/login-bg.jpg";
 
 import { connect } from "react-redux";
-import {protectedHandleLogin} from '../../actions/index';
-import { Link} from 'react-router-dom';
+import {protectedHandleRegister} from '../../actions/index';
+import {Link} from 'react-router-dom';
 
 
 
@@ -24,25 +24,25 @@ const FormContainer = styled.div`
   width: 100%;
 `;
 
-const LoginContainer = styled.div`
-  margin: 30px 0 0 0;
-  width: 100%;
-  height: 450px;
-  background: #fff;
-  border: 1px solid #e2e2e2;
-  border-radius: 3px;
-  box-shadow: 0 0 30px black;
-`;
-
-// const RegisterContainer = styled.div`
-//   margin: 100px 0 0 0;
+// const LoginContainer = styled.div`
+//   margin: 30px 0 0 0;
 //   width: 100%;
-//   height: 620px;
+//   height: 450px;
 //   background: #fff;
 //   border: 1px solid #e2e2e2;
 //   border-radius: 3px;
 //   box-shadow: 0 0 30px black;
 // `;
+
+const RegisterContainer = styled.div`
+  margin: 100px 0 0 0;
+  width: 100%;
+  height: 620px;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 3px;
+  box-shadow: 0 0 30px black;
+`;
 
 const ImageContainer = styled.div`
   width: 54%;
@@ -70,6 +70,33 @@ const InputText = styled.input`
   -webkit-appearance: none;
   font-size: 14px;
 `;
+const InputSelect = styled.select`
+  height: 33px;
+  margin: 0 0 7px 0;
+  padding: 0 0 0 9px;
+  border: 1px solid #edecec;
+  background: #f9f9f9;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  font-size: 14px;
+`;
+
+
+
+const InputOption = styled.option`
+  height: 33px;
+  margin: 0 0 7px 0;
+  padding: 0 0 0 9px;
+  border: 1px solid #edecec;
+  background: #f9f9f9;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  font-size: 14px;
+  select:invalid { color: blue; }
+`;
+
+
+
 
 const LoginButton = styled.input`
   height: 32px;
@@ -99,57 +126,70 @@ const Title = styled.h1`
   font-size: 1.8rem;
 `;
 
-class Login2 extends React.Component {
+class Register2 extends React.Component {
   render() {
-    // console.log('props-login', this.props)
+    // console.log('reg-props', this.props)
     return (
       <Wrapper>
         <FormContainer>
-            <LoginContainer>
+            <RegisterContainer>
               <ImageContainer>
                 <Image alt="sit up icon" src={abs} />
               </ImageContainer>
               <Title>AirFitness</Title>
               <LoginForm
                 onSubmit={e => {
-                  this.handleLogin(e);
+                  this.handleRegister(e);
                 }}
               >
+                <InputText type="text" placeholder="First Name" />
+                <InputText type="text" placeholder="Last Name" />
                 <InputText type="text" placeholder="Username" />
+                <InputSelect  required defaultValue='selected'>
+                  <InputOption disabled value='selected' >Are You an Instructor?</InputOption>
+                  <InputOption value="false">No</InputOption>
+                  <InputOption value="true">Yes</InputOption>
+                </InputSelect >
+                <InputText type="text" placeholder="Email" />
                 <InputText type="password" placeholder="Password" />
                 <LoginButton type="submit" value="Log In" />
-                <Link to='/register'>
-                <LinkButton
-                  type="button"
-                  className="link-button"
-                  // onClick={this.props.showRegister}
-                >
-                  New User? Register here.
-                </LinkButton>
-              </Link>
+                <Link to='/login'>
+                  <LinkButton
+                    type="button"
+                    className="link-button"
+                    onClick={this.props.showLogin}
+                  >
+                    Already Getting AirFit? Log in here.
+                  </LinkButton>
+                </Link>
               </LoginForm>
-            </LoginContainer>
+            </RegisterContainer>
         </FormContainer>
       </Wrapper>
     );
   }
-  handleLogin = e => {
+
+  handleRegister = e => {
     e.preventDefault();
-    let loginCredentials = {
-      username: e.target[0].value,
-      password: e.target[1].value
+    let registryCredentials = {
+      first_name: e.target[0].value,
+      last_name: e.target[1].value,
+      username: e.target[2].value,
+      instructor: JSON.parse(e.target[3].value),
+      email: e.target[4].value,
+      password: e.target[5].value
     };
     const routerState = this.props.routerState;
-    this.props.protectedHandleLogin(loginCredentials, routerState);
+    this.props.protectedHandleRegister(registryCredentials, routerState);
   };
+
 }
 
-// export default Login2;
 const mapStateToProps = state => {
   return state;
 }
 export default connect(
   mapStateToProps, {
-    protectedHandleLogin
+    protectedHandleRegister
   }
-)(Login2);
+)(Register2);

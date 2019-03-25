@@ -1,3 +1,5 @@
+select:invalid { color: #757575; }
+
 .App {
   border: 1px solid blue;
   margin: 0 auto;
@@ -9,17 +11,46 @@
 html {
   box-sizing: border-box;
 }
-
 body {
   font-size: 62.5%;
 }
+.home-wrapper{}
+/* header */
 .App-header {
-  background: dodgerblue;;
+  
+}
+.header {
+  background: dodgerblue;
   min-height: 10vh;
-}
-.header-buttons {
   padding: 1%;
+  display: flex;
+  justify-content: space-between;
 }
+.buttons-wrapper{
+  display: flex;
+  align-items: center
+}
+.logout-button {
+
+
+}
+.logout-button:hover {
+  width: 200px;
+  height: 75px;
+  cursor: pointer;
+  background-image: url('./images/t/matrix-blue.jpg') ;
+  background-size: cover;
+  color: white;
+  font-size: 24px;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* text-align: right; */
+}
+
+/* tabs */
 /* .ui.tabular.menu .item {
   width: 33%;
 } */
@@ -40,7 +71,6 @@ body {
   color: white;
   cursor:pointer;
   background-color: dodgerblue;
-
 }
 .tab-active {
   border-top: 1px solid grey;
@@ -80,14 +110,11 @@ body {
   background-color: teal;
   color: white;
   height: 25px;
-  
-
 }
 .admin-button:hover {
   color: dodgerblue;
   cursor:pointer;
   background-color: white
-
 }
 .create-class {
   border: 1px solid teal;
@@ -128,3 +155,18 @@ body {
   /* background-color: rgb(255, 30, 98); */
   
 }
+.dashboard {
+  background-image: url('./images/t/bruce-mars-559226-unsplash.jpg') ;
+  height: 90vh;
+  background-size: contain;
+  max-width:100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: dodgerblue;
+}
+

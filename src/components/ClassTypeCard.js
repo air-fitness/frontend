@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Header, Icon, Image, Modal, Grid } from 'semantic-ui-react';
+import { Button, Modal, Grid } from 'semantic-ui-react';
 import moment from 'moment';
 import 'semantic-ui-css/semantic.min.css'
 

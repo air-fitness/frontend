@@ -11,14 +11,16 @@ export const callScheduleClass = (e, newClass, history, header, newScheduledClas
   return function(dispatch) {
     promise
       .then(res => {
-        console.log('res-newClass', res);
+        console.log('res-newClass', res.data);
         dispatch({
           type: SCHEDULE_CLASS_RETURNED,
           payload: res.data
         })
-        // history.push('/admin')
+        // history.push('/admin');
+        (alert(`Success! {class_time_id:${res.data.class_time_id}}`))
       }).catch(err => {
         console.log('error-newClass', err)
+        alert('Fail!');
       })
   }
 

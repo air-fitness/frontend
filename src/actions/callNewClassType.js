@@ -15,7 +15,11 @@ export const callNewClassType = (e, newClass, history, header) => {
 					type: NEW_CLASS_TYPE,
 					payload: res.data
 				});
+				alert(`Success! class_id:${res.data.class_id}`)
 			})
-			.catch(err => console.log('err-new-class-type', err));
+			.catch(err => {
+				console.log('err-new-class-type', err);
+				alert('Fail!');
+				});
 	};
 };

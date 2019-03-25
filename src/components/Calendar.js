@@ -7,7 +7,6 @@ import { getCalendar } from '../actions/index';
 
 import './css/react-big-calendar.css';
 
-import Tabs from './Tabs';
 import Modal from './Modal';
 
 const localizer = BigCalendar.momentLocalizer(moment);
@@ -76,7 +75,7 @@ class Calendar extends Component {
 
 		return (
 			<Fragment>
-				<Tabs />
+				{/* <Tabs /> */}
 				<div className="CalendarContainer" style={{ height: '800px' }}>
 					<BigCalendar
 						events={events}
